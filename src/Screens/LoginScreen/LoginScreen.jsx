@@ -39,9 +39,9 @@ export const LoginScreen = () => {
     }
 
 useEffect(() => {
-    console.log(response)
+
     if (response) {
-        console.log(response.data)
+   
         localStorage.setItem(LOCALSTORAGE_KEYS.AUTH_TOKEN, response.data.authorization_token)
         localStorage.setItem('user_name', response.data.user_name)
         navigate('/home')
