@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useFetch from "../../hooks/useFetch";
 import { getWorkspaceById, getWorkspaceMembers } from "../../services/workspaceService";
-import InviteUserForm from "../../Components/InviteUserForm/InviteUserForm";
-import ChannelList from "../../components/ChannelList/ChannelList";
 
 const WorkspaceDetailScreen = () => {
   const { workspace_id } = useParams();
