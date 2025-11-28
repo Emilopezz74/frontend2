@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111b21;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+/* WhatsApp animated background */
+.whatsapp-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.whatsapp-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(37, 211, 102, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(37, 211, 102, 0.03) 0%, transparent 50%);
+  animation: bgPulse 8s ease-in-out infinite;
+}
+
+/* Animated bubbles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05));
+  animation: float 15s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.bubble-1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.bubble-2 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 15s;
+}
+
+.bubble-3 {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 20%;
+  animation-delay: 4s;
+  animation-duration: 18s;
+}
+
+.bubble-4 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 14s;
+}
+
+.bubble-5 {
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  animation-delay: 3s;
+  animation-duration: 16s;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-15px, -40px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(25px, -25px) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes bgPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Login card */
+.login-card {
+  background: #202c33;
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.whatsapp-logo {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: bounce 2s ease-in-out infinite;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-logo svg {
+  width: 40px;
+  height: 40px;
+}
+
+.login-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #e9edef;
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  color: #8696a0;
+  font-size: 0.95rem;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  color: #8696a0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input-group input {
+  background: #2a3942;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  color: #e9edef;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #667781;
+}
+
+.input-group input:focus {
+  border-color: #25d366;
+  background: #1f2c34;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+.input-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Button */
+.login-btn {
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.login-btn:hover:not(:disabled) {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.login-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-btn.success {
+  background: #25d366;
+  cursor: default;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Check icon */
+.check-icon {
+  width: 20px;
+  height: 20px;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 0;
+  animation: checkmark 0.5s ease-out;
+}
+
+/* Messages */
+.success-msg {
+  color: #25d366;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.75rem;
+  background: rgba(37, 211, 102, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(37, 211, 102, 0.2);
+}
+
+.error-msg {
+  color: #ea5545;
+  font-size: 0.9rem;
+  padding: 0.875rem;
+  background: rgba(234, 85, 69, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(234, 85, 69, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: shake 0.5s ease-out;
+}
+
+.error-msg svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Link */
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #2a3942;
+}
+
+.login-text {
+  color: #8696a0;
+  font-size: 0.9rem;
+}
+
+.login-anchor {
+  color: #25d366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.login-anchor:hover {
+  color: #20bd5a;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .whatsapp-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .whatsapp-logo svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.75rem;
+  }
+
+  .login-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .login-title {
+    font-size: 1.35rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .input-group input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .login-btn {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .login-card {
+    max-width: 480px;
+    padding: 3rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+  }
+
+  .whatsapp-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .whatsapp-logo svg {
+    width: 45px;
+    height: 45px;
+  }
+}

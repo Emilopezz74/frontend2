@@ -1,0 +1,708 @@
+/* Adding global reset for margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container principal */
+.ws-container {
+  display: flex;
+  height: 100vh;
+  background-color: #111b21;
+  color: #e9edef;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  width: 100%;
+  /* Ensure no overflow or hidden content */
+  overflow: hidden;
+}
+
+/* Sidebar */
+.ws-sidebar {
+  /* Using flex: 1 instead of fixed width for true responsiveness */
+  flex: 1;
+  background-color: #111b21;
+  border-right: 1px solid #2a3942;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header del usuario */
+.ws-header {
+  background-color: #202c33;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a3942;
+}
+
+.ws-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ws-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ws-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ws-username {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e9edef;
+  margin: 0;
+}
+
+.ws-status {
+  font-size: 13px;
+  color: #8696a0;
+}
+
+.ws-logout-btn {
+  background: transparent;
+  border: none;
+  color: #8696a0;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ws-logout-btn:hover {
+  background-color: #2a3942;
+  color: #e9edef;
+}
+
+/* Buscador */
+.ws-search {
+  padding: 12px 16px;
+  background-color: #111b21;
+  position: relative;
+  border-bottom: 1px solid #2a3942;
+}
+
+.ws-search-icon {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8696a0;
+  pointer-events: none;
+}
+
+.ws-search-input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  background-color: #202c33;
+  border: none;
+  border-radius: 8px;
+  color: #e9edef;
+  font-size: 14px;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.ws-search-input::placeholder {
+  color: #8696a0;
+}
+
+.ws-search-input:focus {
+  background-color: #2a3942;
+}
+
+/* Lista de chats */
+.ws-chat-list {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #111b21;
+}
+
+.ws-chat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #1a252c;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ws-chat-item:hover {
+  background-color: #202c33;
+}
+
+.ws-chat-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667781 0%, #54656f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ws-chat-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ws-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ws-chat-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e9edef;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-chat-time {
+  font-size: 12px;
+  color: #8696a0;
+  flex-shrink: 0;
+}
+
+.ws-chat-preview {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ws-chat-message {
+  font-size: 14px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Crear nuevo workspace */
+.ws-new-chat {
+  background-color: #1a3428;
+  border-left: 4px solid #25d366;
+}
+
+.ws-new-chat:hover {
+  background-color: #1f4631;
+}
+
+.ws-new-chat .ws-chat-name {
+  color: #ffffff;
+}
+
+.ws-new-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Detalle del workspace */
+.ws-detail-header {
+  background-color: #202c33;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #2a3942;
+}
+
+.ws-back-btn {
+  background: transparent;
+  border: none;
+  color: #8696a0;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ws-back-btn:hover {
+  background-color: #2a3942;
+  color: #e9edef;
+}
+
+.ws-detail-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.ws-detail-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ws-detail-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e9edef;
+  margin: 0;
+}
+
+.ws-detail-status {
+  font-size: 13px;
+  color: #8696a0;
+}
+
+.ws-detail-content {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #0b141a;
+  /* Removed padding: 16px to allow content to fill entire space without borders */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main - Chat encriptado */
+.ws-main {
+  /* Using flex: 2 for 2/3 ratio (1:2 sidebar:chat) - truly responsive */
+  flex: 2;
+  background-color: #0b141a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* New wrapper for chat on mobile */
+.ws-chat-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile chat header - only visible on mobile */
+.ws-mobile-chat-header {
+  /* Changed from display: none to flex for mobile visibility */
+  display: flex;
+  background-color: #202c33;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2a3942;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mobile chat header - only visible on mobile */
+.ws-mobile-chat-header {
+  display: flex;
+  background-color: #202c33;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2a3942;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mobile back button */
+.ws-mobile-back-btn {
+  background: transparent;
+  border: none;
+  color: #8696a0;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ws-mobile-back-btn:hover {
+  background-color: #2a3942;
+  color: #e9edef;
+}
+
+.ws-mobile-chat-member-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ws-mobile-member-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ws-mobile-member-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e9edef;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-mobile-member-status {
+  font-size: 12px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-empty-state {
+  text-align: center;
+  max-width: 560px;
+  padding: 40px;
+  z-index: 1;
+}
+
+.ws-lock-icon {
+  margin: 0 auto 32px;
+  color: #667781;
+  animation: lockPulse 3s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.ws-empty-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #e9edef;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.ws-empty-text {
+  font-size: 14px;
+  color: #8696a0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Burbujas flotantes */
+.ws-floating-bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ws-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 211, 102, 0.15), rgba(18, 140, 126, 0.05));
+  animation: float 20s infinite ease-in-out;
+}
+
+.ws-bubble:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.ws-bubble:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 20%;
+  animation-delay: 7s;
+}
+
+.ws-bubble:nth-child(3) {
+  width: 180px;
+  height: 180px;
+  bottom: 15%;
+  left: 25%;
+  animation-delay: 14s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+/* Miembros list styling mejorado */
+.ws-members-list {
+  background-color: #1a252c;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ws-members-list h3 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8696a0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 16px 12px;
+  margin: 0;
+  background-color: #111b21;
+}
+
+.ws-members-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Nuevo estilo para item de miembro con avatar y mejor estructura */
+.ws-member-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2a3942;
+  font-size: 14px;
+  color: #e9edef;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-left 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.ws-member-item:last-child {
+  border-bottom: none;
+}
+
+.ws-member-item:hover {
+  background-color: #202c33;
+  border-left-color: #25d366;
+}
+
+.ws-member-item.ws-member-selected {
+  background-color: #1a3428;
+  border-left-color: #25d366;
+}
+
+.ws-no-members {
+  padding: 16px;
+  text-align: center;
+  color: #8696a0;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+/* Avatar del miembro */
+.ws-member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Información del miembro (nombre y rol) */
+.ws-member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ws-member-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e9edef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-member-role {
+  font-size: 12px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  /* Restructured media queries to properly show/hide elements */
+  .ws-container {
+    flex-direction: column;
+  }
+
+  .ws-sidebar {
+    width: 100%;
+    max-width: none;
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+    z-index: auto;
+    transition: display 0.3s ease;
+    flex: none;
+    display: none;
+    border-right: none; /* Remove border-right from sidebar in mobile */
+  }
+
+  /* Show sidebar when no member is selected */
+  .ws-sidebar:not(.ws-sidebar-hidden-mobile) {
+    display: flex;
+    flex: none;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .ws-main {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    left: auto;
+    top: auto;
+    flex: none;
+  }
+
+  /* Show main/chat when member is selected */
+  .ws-main.ws-main-visible-mobile {
+    display: flex;
+  }
+
+  /* Show mobile header on mobile, hide on desktop */
+  .ws-mobile-chat-header {
+    display: flex;
+  }
+}
+
+@media (min-width: 801px) {
+  /* Keep border-right only on desktop */
+  .ws-sidebar {
+    border-right: 1px solid #2a3942;
+  }
+
+  /* Hide mobile header on desktop */
+  .ws-mobile-chat-header {
+    display: none;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  /* Removed fixed width - flex ratio handles it automatically */
+  .ws-sidebar {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1500px) {
+  .ws-member-item {
+    padding: 14px 18px;
+    gap: 14px;
+  }
+
+  .ws-member-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .ws-member-name {
+    font-size: 15px;
+  }
+
+  .ws-member-role {
+    font-size: 13px;
+  }
+
+  .ws-members-list h3 {
+    font-size: 13px;
+    padding: 18px 18px 14px;
+  }
+}
+
