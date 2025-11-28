@@ -40,6 +40,7 @@ function InviteUserForm({ workspace_id, onUserInvited }) {
       handleCloseInviteForm()
       setShowSuccess(false)
     }, 1200)
+    
   }
 
   if (!isOpen) {
