@@ -114,6 +114,7 @@ const RegisterScreen = () => {
                                 value={register_form_state[FORM_FIELDS.PASSWORD]}
                                 className="form-input"
                                 placeholder="Mínimo 6 caracteres"
+                                autoComplete="off"
                             />
                         </div>
 
