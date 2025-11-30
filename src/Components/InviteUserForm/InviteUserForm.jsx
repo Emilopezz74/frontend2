@@ -66,6 +66,9 @@ function InviteUserForm({ workspace_id, onUserInvited }) {
           Invitar
         </button>
         <button
+
+
+
           type="button"
           className="invite-btn-cancel"
           onClick={handleCloseInviteForm}
