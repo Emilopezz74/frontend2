@@ -92,6 +92,7 @@ useEffect(() => {
               onChange={handleInputChange}
               value={login_form_state[FORM_FIELDS.EMAIL]}
               disabled={!!response}
+              autoComplete='off'
             />
           </div>
 
