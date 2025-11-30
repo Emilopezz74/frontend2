@@ -235,11 +235,14 @@ const [searchTerm, setSearchTerm] = useState("");
                 </div>
               </div>
             </div>
-            <ChatBox
-              workspace_id={selectedWorkspace.workspace_id}
-              member={selectedMember}
-              current_user_id={localStorage.getItem("user_id")}
-            />
+<ChatBox
+  workspace_id={selectedWorkspace.workspace_id}
+  member={selectedMember}
+ current_member_id={selectedMember?.member_id}
+
+/>
+
+
           </div>
         ) : (
           <div className="ws-empty-state">

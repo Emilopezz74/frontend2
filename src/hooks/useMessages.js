@@ -13,12 +13,8 @@ export default function useMessages(workspace_id, member, current_member_id) {
 
       const mapped = raw.map((msg) => ({
         ...msg,
-        // Si el sender es distinto del miembro seleccionado, es "Yo"
-        sender_me: msg.sender_member === current_member_id,
-        sender_name:
-          msg.sender_member === current_member_id
-            ? "Yo"
-            : member.name,
+        sender_me: msg.sender_member_id === current_member_id,  // 👈 AHORA FUNCIONA
+        sender_name: msg.sender_member_id === current_member_id ? "Yo" : member.name
       }));
 
       setMessages(mapped);
@@ -26,17 +22,19 @@ export default function useMessages(workspace_id, member, current_member_id) {
       console.error("Error al obtener mensajes DM:", err);
     }
   };
+const send = async (content) => {
+  if (!workspace_id || !member) return;
 
-  const send = async (content) => {
-    if (!workspace_id || !member) return;
+  // Comparar correctamente con tu propio user_id
 
-    try {
-      await sendMessageDM(workspace_id, member.user_id, content);
-      await fetchMessages(); // refrescar mensajes después de enviar
-    } catch (err) {
-      console.error("Error al enviar mensaje DM:", err);
-    }
-  };
+  try {
+    await sendMessageDM(workspace_id, member.user_id, content);
+    await fetchMessages();
+  } catch (err) {
+    console.error("Error al enviar mensaje DM:", err);
+  }
+};
+
 
   useEffect(() => {
     fetchMessages();
